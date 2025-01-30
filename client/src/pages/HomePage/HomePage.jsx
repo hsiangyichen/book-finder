@@ -27,7 +27,7 @@ const HomePage = () => {
       <div className="home__content">
         <Hero />
         <div className="home__search">
-          <h1 className="home__search-title">Finder Your Book!!</h1>
+          <h1 className="home__search-title">Find Your Book!!</h1>
           <SearchBar onSearch={handleSearch} />
         </div>
         <div className="home__book-list">
