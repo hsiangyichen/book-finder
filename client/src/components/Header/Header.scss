@@ -2,37 +2,27 @@
 @use "../../styles/partials/mixins" as *;
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  color: #333;
-  height: 10vh;
+    background-color: #f4ede4; // ✅ Soft beige, matching homepage
+    color: #5a4636; // ✅ Dark brown text for readability
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #d3bfa8; // ✅ Light border for structure
 
-  &__title {
-    font-size: 24px;
-  }
-
-  &__nav {
-    &-list {
-      list-style: none;
-      display: flex;
-      gap: 20px;
+    &__title {
+        font-size: 24px;
+        font-weight: bold;
     }
 
-    &-item {
-      display: inline;
-    }
+    &__nav a {
+        text-decoration: none;
+        color: #a87e5a; // ✅ Warm brown, matching search button
+        font-weight: bold;
+        transition: color 0.3s ease;
 
-    &-link {
-      color: #333;
-      text-decoration: none;
-      font-size: 17px;
-      padding-bottom: 10px;
-
-      &:hover {
-        text-decoration: underline;
-      }
+        &:hover {
+            color: #8c6749; // ✅ Slightly darker on hover
+        }
     }
-  }
 }
