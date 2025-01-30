@@ -11,7 +11,9 @@ const HomePage = () => {
 
   const handleSearch = async (query) => {
     try {
+        console.log("Searching for:", query);
         const response = await axios.get(`http://localhost:8080/search?query=${query}`);
+        console.log("API Response:", response.data);
         console.log(response.data);
         setBooks(response.data.docs);
     } catch (error) {
@@ -33,7 +35,7 @@ const HomePage = () => {
         <SearchBar onSearch={handleSearch} />
         <div className="home__book-list">
           {books.map((book) => (
-            <BookCard key={book.id} book={book} />
+            <BookCard key={book.key} book={book} />
           ))}
         </div>
       </div>
