@@ -18,7 +18,7 @@ const Home = () => {
     return (
         <div>
             <h1>Book Finder</h1>
-            <SearchBar onSearch={handleSearch} />
+            {/* <SearchBar onSearch={handleSearch} /> */}
             <div className="book-grid">
                 {books.map((book) => (
                     <BookCard key={book.key} book={book} />

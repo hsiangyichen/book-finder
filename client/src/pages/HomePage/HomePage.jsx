@@ -1,37 +1,36 @@
 import { useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import BookCard from "../../components/BookCard/BookCard";
-import booksData from "../../data/books";
+// import booksData from "../../data/books";
 import "./HomePage.scss";
-// import axios from "axios";
+import axios from "axios";
 
 const HomePage = () => {
-  const [books, setBooks] = useState(booksData);
+  const [books, setBooks] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
-  // const searchBooks = async (query) => {
-  //   try {
-  //     const response = await axios.get(
-  //       `http://localhost:8080/search?q=${query}`
-  //     );
-  //     setBooks(response.data);
-  //   } catch (error) {
-  //     console.error("Error fetching books:", error);
-  //   }
-  // };
+  const handleSearch = async (query) => {
+    try {
+        const response = await axios.get(`http://localhost:8080/search?query=${query}`);
+        console.log(response.data);
+        setBooks(response.data.docs);
+    } catch (error) {
+        console.error("Error fetching data", error);
+    }
+};
 
-  const searchBooks = (query) => {
-    setSearchQuery(query);
-    const filteredBooks = booksData.filter((book) =>
-      book.title.toLowerCase().includes(query.toLowerCase())
-    );
-    setBooks(filteredBooks);
-  };
+  // const searchBooks = (query) => {
+  //   setSearchQuery(query);
+  //   const filteredBooks = booksData.filter((book) =>
+  //     book.title.toLowerCase().includes(query.toLowerCase())
+  //   );
+  //   setBooks(filteredBooks);
+  // };
 
   return (
     <div className="home">
       <div className="home__content">
-        <SearchBar onSearch={searchBooks} />
+        <SearchBar onSearch={handleSearch} />
         <div className="home__book-list">
           {books.map((book) => (
             <BookCard key={book.id} book={book} />
