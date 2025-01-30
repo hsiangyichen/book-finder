@@ -46,6 +46,7 @@
     gap: 48px;
     background-color: #f4f2ec;
     margin: 0 1rem;
+    align-items: flex-start;
 
     @include tablet {
       margin: 0 1.5rem;
