@@ -1,0 +1,49 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 50vh;
+
+  &__image {
+    &--girl {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      z-index: 10;
+    }
+
+    &--boy {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 200px;
+      z-index: 10;
+    }
+  }
+
+  &__books {
+    display: flex;
+    flex-direction: row;
+    // justify-content: flex-end;
+    align-items: end;
+    gap: 10px;
+  }
+
+  &__book {
+    &--one {
+      height: 240px;
+    }
+    &--two {
+      height: 270px;
+    }
+    &--three {
+      height: 240px;
+    }
+  }
+}
