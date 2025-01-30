@@ -21,13 +21,6 @@ const HomePage = () => {
     }
 };
 
-  // const searchBooks = (query) => {
-  //   setSearchQuery(query);
-  //   const filteredBooks = booksData.filter((book) =>
-  //     book.title.toLowerCase().includes(query.toLowerCase())
-  //   );
-  //   setBooks(filteredBooks);
-  // };
 
   return (
     <div className="home">

@@ -11,7 +11,7 @@ return (
     <div className="book-card">
         <img src={coverImage} alt={book.title} />
         <h3>{book.title}</h3>
-        <p>By {book.author_name ? book.author_name.join(", ") : "Unknown Author"}</p>
+        <p>Author: {book.author_name ? book.author_name.join(", ") : "Unknown Author"}</p>
         <p>Published: {book.first_publish_year || "Unknown Year"}</p>
         <Link to={`/book/${book.key.replace("/works/", "")}`}>View Details</Link>
     </div>

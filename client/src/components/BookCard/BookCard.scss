@@ -1,2 +1,37 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
+
+.book-card {
+    display: flex; // ✅ Use flexbox for horizontal layout
+    align-items: center; // ✅ Align items in the center
+    gap: 15px; // ✅ Adds spacing between image and text
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    width: 100%;
+
+    img {
+        max-width: 150px; // ✅ Set a max width for the image
+        height: auto;
+        border-radius: 5px;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left; // ✅ Align text to the left
+    }
+
+    &__title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    &__author {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+}
