@@ -3,12 +3,13 @@
 
 .home {
   min-height: 100vh;
-
   width: 100%;
 
   &__content {
     display: flex;
     flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
     padding: 2rem 0;
     // margin: 0 1rem;
     background-color: #f4f2ec;
@@ -19,11 +20,41 @@
 
     @include desktop {
       //   margin: 0 auto;
-      max-width: 1280px;
+      //   max-width: 1280px;
     }
   }
 
+  &__search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+  }
+
+  &__search-title {
+    padding-bottom: 24px;
+  }
+
   &__book-list {
-    background-color: white;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 48px;
+    background-color: #f4f2ec;
+    margin: 0 1rem;
+
+    @include tablet {
+      margin: 0 1.5rem;
+    }
+
+    @include desktop {
+      margin: 0 15rem;
+      //   margin: 0 auto;
+      //   max-width: 1280px;
+    }
   }
 }

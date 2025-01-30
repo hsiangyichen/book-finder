@@ -2,41 +2,37 @@ import { useState } from "react";
 import Hero from "../../components/Hero/Hero";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import BookCard from "../../components/BookCard/BookCard";
-import booksData from "../../data/books";
 import "./HomePage.scss";
-// import axios from "axios";
+import axios from "axios";
 
 const HomePage = () => {
-  const [books, setBooks] = useState(booksData);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [books, setBooks] = useState([]);
 
-  // const searchBooks = async (query) => {
-  //   try {
-  //     const response = await axios.get(
-  //       `http://localhost:8080/search?q=${query}`
-  //     );
-  //     setBooks(response.data);
-  //   } catch (error) {
-  //     console.error("Error fetching books:", error);
-  //   }
-  // };
-
-  const searchBooks = (query) => {
-    setSearchQuery(query);
-    const filteredBooks = booksData.filter((book) =>
-      book.title.toLowerCase().includes(query.toLowerCase())
-    );
-    setBooks(filteredBooks);
+  const handleSearch = async (query) => {
+    try {
+      console.log("Searching for:", query);
+      const response = await axios.get(
+        `http://localhost:8000/search?query=${query}`
+      );
+      console.log("API Response:", response.data);
+      console.log(response.data);
+      setBooks(response.data.docs);
+    } catch (error) {
+      console.error("Error fetching data", error);
+    }
   };
 
   return (
     <div className="home">
       <div className="home__content">
         <Hero />
-        <SearchBar onSearch={searchBooks} />
+        <div className="home__search">
+          <h1 className="home__search-title">Finder Your Book!!</h1>
+          <SearchBar onSearch={handleSearch} />
+        </div>
         <div className="home__book-list">
           {books.map((book) => (
-            <BookCard key={book.id} book={book} />
+            <BookCard key={book.key} book={book} />
           ))}
         </div>
       </div>
