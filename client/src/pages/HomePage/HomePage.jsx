@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Hero from "../../components/Hero/Hero";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import BookCard from "../../components/BookCard/BookCard";
 import booksData from "../../data/books";
@@ -31,6 +32,7 @@ const HomePage = () => {
   return (
     <div className="home">
       <div className="home__content">
+        <Hero />
         <SearchBar onSearch={searchBooks} />
         <div className="home__book-list">
           {books.map((book) => (
